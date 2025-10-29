@@ -18,6 +18,6 @@ public class Player : Move
     {
         base.Update();
         print("update player");
-        m_Direction = Input.GetAxis(_HorizontalAxis) * Vector3.right + Input.GetAxis(_VerticalAxis) * Vector3.forward;
+        m_Direction = (Input.GetAxis(_HorizontalAxis) * Vector3.right + Input.GetAxis(_VerticalAxis) * Vector3.forward).normalized;
     }
 }
