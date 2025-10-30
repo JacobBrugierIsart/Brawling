@@ -30,3 +30,4 @@ SysInfo/
 *.apk
 *.aab
 *.unitypackage
+.vs/
