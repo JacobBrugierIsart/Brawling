@@ -15,7 +15,6 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        print("update move");
         transform.position += m_Direction * m_Speed * Time.deltaTime;
     }
 }
