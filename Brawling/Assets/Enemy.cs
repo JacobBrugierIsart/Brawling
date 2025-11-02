@@ -4,7 +4,7 @@ public class Enemy : Move
 {
     void Start()
     {
-          m_Direction = new Vector3(1, 0, 0);
+          m_Direction = new Vector3(1, 0, 1);
     }
 
     protected override void Update()
