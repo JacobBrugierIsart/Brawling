@@ -9,6 +9,9 @@ public class Weapon : MonoBehaviour
     private float AttackDuration = 0.1f;
     private bool AttackLeft;
 
+    public float ActualSpeed;
+    private float PreviousRotation = 0;
+
     void Start()
     {
         
@@ -17,11 +20,12 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            StopAllCoroutines();
-            StartCoroutine(SwingBat());
-        }
+        //if (Input.GetKeyDown(KeyCode.Mouse0))
+        //{
+        //    StopAllCoroutines();
+        //    StartCoroutine(SwingBat());
+        //}
+        GetSpeed();
     }
 
     private IEnumerator SwingBat()
@@ -45,5 +49,14 @@ public class Weapon : MonoBehaviour
         }
 
         BaseballBatModel.localRotation = lTargetRotation;
+    }
+
+    private void GetSpeed()
+    {
+        float lActualRotation = GetComponentInParent<Transform>().eulerAngles.y;
+
+        ActualSpeed = Mathf.Abs(PreviousRotation - lActualRotation);
+
+        PreviousRotation = lActualRotation;
     }
 }
